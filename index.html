@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Joelism of the Day</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+                   Roboto, Helvetica, Arial, sans-serif;
+      background: #0f0f14;
+      color: #f5f5f7;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .container {
+      max-width: 800px;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .quote {
+      font-size: clamp(1.4rem, 3vw, 2.2rem);
+      line-height: 1.4;
+    }
+
+    .footer {
+      margin-top: 2rem;
+      font-size: 0.9rem;
+      opacity: 0.6;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div id="quote" class="quote"></div>
+    <div class="footer">A new one appears every day.</div>
+  </div>
+
+  <script>
+    const quotes = [
+      "I heard it straight from the horse's hooves.",
+      "Seal in the deal.",
+      "Stop breathing down my throat.",
+      "Don't forget to dot your p’s and q’s.",
+      "I can finally see the end of the light",
+      "No sweat on my back",
+      "I named my AIM username inferiorjoel because I thought inferior meant superior.",
+      "I’d be stressed beyond wazooz.",
+      "From the top of my heart.",
+      "geez a loo",
+      "I wish I was more smarter.",
+      "That one made me think a bit, and I don't normally do that.",
+      "I’ll wait till you're out like a log.",
+      "I’m waiting on bated breath.",
+      "The most depressing book I ever rode.",
+      "I can’t wait to bite down on that itch.",
+      "We’re just touching the tips so far… wait, I mean… we’ve only seen the tip of the iceberg!",
+      "Don’t make a molehill out of an ant hill.",
+      "Put your money where your heart is.",
+      "Wide eyed and bushy tailed.",
+      "Words have been a weird lately.",
+      "Distance makes the fondness more fond.",
+      "Every day is a day."
+      // 👉 You can paste the full list here; this works with hundreds of entries
+    ];
+
+    function getDailyIndex(length) {
+      const today = new Date();
+      const daySeed = Math.floor(
+        Date.UTC(today.getFullYear(), today.getMonth(), today.getDate()) /
+        86400000
+      );
+      return daySeed % length;
+    }
+
+    const index = getDailyIndex(quotes.length);
+    document.getElementById("quote").textContent = quotes[index];
+  </script>
+</body>
+</html>
